@@ -11,11 +11,14 @@ PanelWindow {
     required property ShellScreen modelData
 
     property string activePopout: ""
+    property bool launcherOpen: false
     property bool windowTitle: true
     property bool hour24: true
     property bool seconds: false
 
     signal popoutRequested(string name)
+    signal launcherRequested
+    signal settingsRequested
 
     screen: modelData
     color: "transparent"
@@ -41,6 +44,18 @@ PanelWindow {
         anchors.left: parent.left
         y: bar.headroom
         spacing: Theme.gap * 1.25
+
+        Island {
+            delay: 0
+            padding: 5
+
+            LauncherButton {
+                anchors.verticalCenter: parent.verticalCenter
+                launcherOpen: bar.launcherOpen
+                onLauncherRequested: bar.launcherRequested()
+                onSettingsRequested: bar.settingsRequested()
+            }
+        }
 
         Island {
             delay: 60

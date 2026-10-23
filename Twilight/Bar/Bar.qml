@@ -12,8 +12,13 @@ Scope {
 
     // The card dropped from the bar that is open: "", "calendar" or "sound".
     property string activePopout: ""
+    // Whether the launcher is open; the launcher button stays lit.
+    property bool launcherOpen: false
 
     signal popoutRequested(string name)
+    // Left click on the launcher button, and right click: the settings.
+    signal launcherRequested
+    signal settingsRequested
 
     // Settings, in bar.toml.
     readonly property bool windowTitle: config.get("window-title", true)
@@ -31,11 +36,14 @@ Scope {
 
         BarWindow {
             activePopout: root.activePopout
+            launcherOpen: root.launcherOpen
             windowTitle: root.windowTitle
             hour24: root.hour24
             seconds: root.seconds
 
             onPopoutRequested: name => root.popoutRequested(name)
+            onLauncherRequested: root.launcherRequested()
+            onSettingsRequested: root.settingsRequested()
         }
     }
 }

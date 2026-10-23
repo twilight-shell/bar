@@ -2,7 +2,8 @@
 
 The bar of the [twilight-shell](https://github.com/twilight-shell) organization:
 a row of floating sticker islands along the top of every screen: workspaces, the
-focused window, the clock, the keyboard layout, the tray and the volume. It works
+focused window, the clock, the keyboard layout, the tray, the volume and the
+launcher button. It works
 on its own or as a piece of the full shell.
 
 ## Requirements
@@ -34,7 +35,9 @@ import Twilight.Bar
 
 Bar {
     activePopout: popouts.current            // lights the island that opened it
+    launcherOpen: launcher.opened
     onPopoutRequested: name => popouts.toggle(name)
+    onLauncherRequested: launcher.toggle()
 }
 ```
 
@@ -45,7 +48,10 @@ simply do nothing.
 | | |
 |---|---|
 | `activePopout` | Which card dropped from the bar is open: `""`, `"calendar"` or `"sound"`. The island that opened it stays lit. |
+| `launcherOpen` | Whether the launcher is open; the launcher button stays lit. |
 | `popoutRequested(name)` | A click on the clock (`"calendar"`) or the volume (`"sound"`). |
+| `launcherRequested()` | A click on the launcher button. |
+| `settingsRequested()` | A right click on the launcher button. |
 
 ## Settings
 
