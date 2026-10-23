@@ -9,8 +9,13 @@ Row {
 
     property bool h24: true
     property bool seconds: false
-    // Digits only; colons go after the hours and minutes.
-    readonly property string time: Qt.formatDateTime(clock.date, (h24 ? "HH" : "hh") + "mm" + (seconds ? "ss" : ""))
+    // Digits only; colons go after the hours and minutes. The hours are worked
+    // out here: Qt's "hh" is a 12-hour clock only when the format also has "AP".
+    readonly property string time: {
+        const date = clock.date;
+        const hours = h24 ? date.getHours() : date.getHours() % 12 || 12;
+        return String(hours).padStart(2, "0") + Qt.formatDateTime(date, "mm") + (seconds ? Qt.formatDateTime(date, "ss") : "");
+    }
     readonly property int hour: clock.date.getHours()
 
     spacing: 10
