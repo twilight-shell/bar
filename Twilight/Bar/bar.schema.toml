@@ -1,0 +1,22 @@
+title = "Bar"
+description = "What the islands at the top of the screen show."
+glyph = "▬"
+order = 40
+
+[[options]]
+key = "window-title"
+title = "Window title"
+description = "The focused window's icon and title next to the workspaces."
+type = "toggle"
+
+[[options]]
+key = "clock.hour24"
+title = "24-hour clock"
+description = "Turn off for AM/PM."
+type = "toggle"
+
+[[options]]
+key = "clock.seconds"
+title = "Seconds"
+description = "Show seconds in the clock."
+type = "toggle"
