@@ -21,14 +21,16 @@ Scope {
     signal settingsRequested
 
     // Settings, in bar.toml.
-    readonly property bool windowTitle: config.get("window-title", true)
-    readonly property bool hour24: config.get("clock.hour24", true)
-    readonly property bool seconds: config.get("clock.seconds", false)
+    // `!!`: the defaults file is read a moment after the first binding runs.
+    readonly property bool windowTitle: !!config.get("window-title")
+    readonly property bool hour24: !!config.get("clock.hour24")
+    readonly property bool seconds: !!config.get("clock.seconds")
 
     ConfigFile {
         id: config
 
         name: "bar"
+        defaults: Qt.resolvedUrl("bar.defaults.toml")
     }
 
     Variants {

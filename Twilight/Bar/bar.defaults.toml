@@ -1,0 +1,7 @@
+# The focused window's icon and title next to the workspaces.
+window-title = true
+
+[clock]
+# false for AM/PM
+hour24 = true
+seconds = false
