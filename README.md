@@ -1,5 +1,7 @@
 # twilight-shell/bar
 
+[![ci](https://github.com/twilight-shell/bar/actions/workflows/ci.yml/badge.svg)](https://github.com/twilight-shell/bar/actions/workflows/ci.yml)
+
 The bar of the [twilight-shell](https://github.com/twilight-shell) organization:
 a row of floating sticker islands along the top of every screen: workspaces, the
 focused window, the clock, the keyboard layout, the tray, the volume and the
@@ -70,6 +72,10 @@ seconds = false
 
 The colors come from `~/.config/twilight-shell/theme.toml` (see
 [core](https://github.com/twilight-shell/core)).
+
+## Contributing
+
+Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Agents and the like: [AGENTS.md](AGENTS.md).
 
 ## License
 
