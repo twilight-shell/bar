@@ -27,6 +27,7 @@ Tap {
             root.sink.audio.muted = !root.muted;
     }
     onWheel: event => {
+        event.accepted = true;
         const step = event.angleDelta.y > 0 ? 0.05 : -0.05;
         root.sink.audio.volume = Math.max(0, Math.min(1, root.volume + step));
     }
