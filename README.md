@@ -2,8 +2,8 @@
 
 The bar of the [twilight-shell](https://github.com/twilight-shell) organization:
 a row of floating sticker islands along the top of every screen: workspaces, the
-focused window, the clock and the keyboard layout. It works on its own or as a
-piece of the full shell.
+focused window, the clock, the keyboard layout, the tray and the volume. It works
+on its own or as a piece of the full shell.
 
 ## Requirements
 
@@ -41,6 +41,11 @@ Bar {
 The bar doesn't know the other components: what is open elsewhere comes in as
 properties and what the user asks for goes out as signals. On its own the clicks
 simply do nothing.
+
+| | |
+|---|---|
+| `activePopout` | Which card dropped from the bar is open: `""`, `"calendar"` or `"sound"`. The island that opened it stays lit. |
+| `popoutRequested(name)` | A click on the clock (`"calendar"`) or the volume (`"sound"`). |
 
 ## Settings
 

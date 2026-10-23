@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import Quickshell.Services.SystemTray
 import Twilight.Core
 import "widgets"
 
@@ -88,6 +89,27 @@ PanelWindow {
 
             KeyboardLayout {
                 anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        Island {
+            delay: 260
+            visible: SystemTray.items.values.length > 0
+
+            Tray {
+                anchors.verticalCenter: parent.verticalCenter
+                barWindow: bar
+            }
+        }
+
+        Island {
+            delay: 320
+            padding: 6
+            active: bar.activePopout === "sound"
+
+            Volume {
+                anchors.verticalCenter: parent.verticalCenter
+                onMixerRequested: bar.popoutRequested("sound")
             }
         }
     }
