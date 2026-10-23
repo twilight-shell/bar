@@ -10,6 +10,7 @@ PanelWindow {
     required property ShellScreen modelData
 
     property string activePopout: ""
+    property bool windowTitle: true
     property bool hour24: true
     property bool seconds: false
 
@@ -35,6 +36,32 @@ PanelWindow {
         right: Theme.gap * 2
     }
 
+    Row {
+        anchors.left: parent.left
+        y: bar.headroom
+        spacing: Theme.gap * 1.25
+
+        Island {
+            delay: 60
+            padding: 6
+
+            Workspaces {
+                anchors.verticalCenter: parent.verticalCenter
+                screenName: bar.screen.name
+            }
+        }
+
+        Island {
+            delay: 120
+            visible: bar.windowTitle
+
+            WindowTitle {
+                anchors.verticalCenter: parent.verticalCenter
+                maxWidth: bar.width * 0.22
+            }
+        }
+    }
+
     Island {
         anchors.horizontalCenter: parent.horizontalCenter
         y: bar.headroom
@@ -47,6 +74,21 @@ PanelWindow {
             anchors.verticalCenter: parent.verticalCenter
             h24: bar.hour24
             seconds: bar.seconds
+        }
+    }
+
+    Row {
+        anchors.right: parent.right
+        y: bar.headroom
+        spacing: Theme.gap * 1.25
+
+        Island {
+            delay: 200
+            padding: 6
+
+            KeyboardLayout {
+                anchors.verticalCenter: parent.verticalCenter
+            }
         }
     }
 }

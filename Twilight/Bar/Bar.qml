@@ -16,6 +16,7 @@ Scope {
     signal popoutRequested(string name)
 
     // Settings, in bar.toml.
+    readonly property bool windowTitle: config.get("window-title", true)
     readonly property bool hour24: config.get("clock.hour24", true)
     readonly property bool seconds: config.get("clock.seconds", false)
 
@@ -30,6 +31,7 @@ Scope {
 
         BarWindow {
             activePopout: root.activePopout
+            windowTitle: root.windowTitle
             hour24: root.hour24
             seconds: root.seconds
 
