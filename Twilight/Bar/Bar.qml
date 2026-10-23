@@ -14,6 +14,10 @@ Scope {
     property string activePopout: ""
     // Whether the launcher is open; the launcher button stays lit.
     property bool launcherOpen: false
+    // Islands that other parts of the shell bring, say plugins: a list of
+    // { slot: "left" or "right", component }, where `component` is what an
+    // island of its own shows. Anything else in an entry is ignored.
+    property var extras: []
 
     signal popoutRequested(string name)
     // Left click on the launcher button, and right click: the settings.
@@ -39,6 +43,7 @@ Scope {
         BarWindow {
             activePopout: root.activePopout
             launcherOpen: root.launcherOpen
+            extras: root.extras
             windowTitle: root.windowTitle
             hour24: root.hour24
             seconds: root.seconds
