@@ -55,13 +55,16 @@ simply do nothing.
 
 ## Settings
 
-`~/.config/twilight-shell/bar.toml`, applied as soon as it is saved:
+`~/.config/twilight-shell/bar.toml`, created with the defaults the first time the
+bar starts and applied as soon as it is saved:
 
 ```toml
-window-title = true   # the focused window's icon and title next to the workspaces
+# The focused window's icon and title next to the workspaces.
+window-title = true
 
 [clock]
-hour24 = true      # false for AM/PM
+# false for AM/PM
+hour24 = true
 seconds = false
 ```
 
